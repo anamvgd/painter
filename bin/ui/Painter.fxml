@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="553.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.PainterController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="120.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="474.0" minWidth="10.0" prefWidth="433.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <VBox minWidth="-Infinity" prefHeight="529.0" prefWidth="30.0" GridPane.rowIndex="1">
+         <children>
+            <TitledPane animated="false" prefHeight="138.0" prefWidth="113.0" text="Drawing Color">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="111.0">
+                     <children>
+                        <RadioButton fx:id="blackRadioButton" layoutY="6.0" mnemonicParsing="false" onAction="#colorRadioButtonSelected" selected="true" text="Black">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="colorToggleGroup" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="redRadioButton" layoutY="30.0" mnemonicParsing="false" onAction="#colorRadioButtonSelected" text="Red" toggleGroup="$colorToggleGroup" />
+                        <RadioButton fx:id="greenRadioButton" layoutY="56.0" mnemonicParsing="false" onAction="#colorRadioButtonSelected" text="Green" toggleGroup="$colorToggleGroup" />
+                        <RadioButton fx:id="blueRadioButton" layoutY="81.0" mnemonicParsing="false" onAction="#colorRadioButtonSelected" text="Blue" toggleGroup="$colorToggleGroup" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </TitledPane>
+            <TitledPane animated="false" prefHeight="125.0" prefWidth="113.0" text="Pen Size">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="99.0" prefWidth="109.0">
+                     <children>
+                        <RadioButton fx:id="smallRadioButton" layoutY="6.0" mnemonicParsing="false" onAction="#sizeRadioButtonSelected" text="Small">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="sizeToggleGroup" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="mediumRadioButton" layoutY="33.0" mnemonicParsing="false" onAction="#sizeRadioButtonSelected" selected="true" text="Medium" toggleGroup="$sizeToggleGroup" />
+                        <RadioButton fx:id="largeRadioButton" layoutY="62.0" mnemonicParsing="false" onAction="#sizeRadioButtonSelected" text="Large" toggleGroup="$sizeToggleGroup" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </TitledPane>
+            <Button mnemonicParsing="false" onAction="#undoButtonPressed" prefHeight="25.0" prefWidth="129.0" text="Undo" />
+            <Button mnemonicParsing="false" onAction="#clearButtonPressed" prefHeight="25.0" prefWidth="135.0" text="Clear" />
+         </children>
+      </VBox>
+      <Pane fx:id="drawingAreaPane" onMouseDragged="#drawingAreaMouseDragged" prefHeight="433.0" prefWidth="440.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+   </children>
+</GridPane>
